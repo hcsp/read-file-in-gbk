@@ -1,9 +1,10 @@
 package com.github.hcsp.string;
 
-import org.apache.commons.io.FileUtils;
-
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class GbkFileReader {
     public static void main(String[] args) throws IOException {
@@ -12,6 +13,7 @@ public class GbkFileReader {
     }
 
     public String readFileWithGBK(File file) throws IOException {
-        return FileUtils.readFileToString(file, "gbk");
+        BufferedReader r = new BufferedReader(new InputStreamReader(new FileInputStream(file), "GBK"));
+        return r.readLine();
     }
 }
