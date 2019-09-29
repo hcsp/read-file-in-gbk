@@ -9,8 +9,9 @@ public class GbkFileReaderTest {
     @Test
     public void test() throws Exception {
         File tmp = File.createTempFile("tmp", "");
-        Files.write(tmp.toPath(), "今天天气不错".getBytes("GBK"));
+        String text = "窗前明月光\n疑似地上霜\n举头望明月\n低头思故乡";
+        Files.write(tmp.toPath(), text.getBytes("GBK"));
 
-        Assertions.assertEquals("今天天气不错", new GbkFileReader().readFileWithGBK(tmp));
+        Assertions.assertEquals(text, new GbkFileReader().readFileWithGBK(tmp));
     }
 }
