@@ -16,7 +16,6 @@ public class GbkFileReader {
         StringBuilder stringBuilder = new StringBuilder();
         try {
             List<String> stringList = Files.readAllLines(file.toPath(), Charset.forName("GBK"));
-            System.out.println(String.valueOf(stringList));
             for (String str : stringList) {
                 stringBuilder.append(str).append("\n");
             }
