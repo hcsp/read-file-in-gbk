@@ -11,7 +11,8 @@ public class GbkFileReaderTest {
         File tmp = File.createTempFile("tmp", "");
         String text = "窗前明月光\n疑似地上霜\n举头望明月\n低头思故乡";
         Files.write(tmp.toPath(), text.getBytes("GBK"));
-
+        System.out.println(text);
+        System.out.println(new GbkFileReader().readFileWithGBK(tmp));
         Assertions.assertEquals(text, new GbkFileReader().readFileWithGBK(tmp));
     }
 }
