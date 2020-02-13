@@ -2,7 +2,7 @@
 
 在项目目录下，存在一个GBK编码的文件，请实现一个[`GbkFileReader`](https://github.com/hcsp/read-file-in-gbk/blob/master/src/main/java/com/github/hcsp/string/GbkFileReader.java)将它正确地读取出来，在这个过程中，思考字节和字符之间的编码转换是如何发生的。
 
-在提交Pull Request之前，你应当在本地确保所有代码已经编译通过，并且通过了测试(`mvn clean test`)
+在提交Pull Request之前，你应当在本地确保所有代码已经编译通过，并且通过了测试(`mvn clean verify`)
 
 -----
 注意！我们只允许你修改以下文件，对其他文件的修改会被拒绝：
