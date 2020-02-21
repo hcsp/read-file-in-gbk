@@ -1,26 +1,14 @@
 package com.github.hcsp.string;
 
-import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.util.List;
+import java.io.File;
 
 public class GbkFileReader {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         File projectDir = new File(System.getProperty("basedir", System.getProperty("user.dir")));
         System.out.println(new GbkFileReader().readFileWithGBK(new File(projectDir, "gbk.txt")));
     }
 
-    public String readFileWithGBK(File file) throws IOException {
-        List<String> strings = Files.readAllLines(file.toPath(), Charset.forName("GBK"));
-        StringBuilder sb = new StringBuilder();
-        if (!strings.isEmpty()) {
-            sb.append(strings.remove(0));
-            while (strings.iterator().hasNext()) {
-                sb.append("\n");
-                sb.append(strings.remove(0));
-            }
-        }
-        return sb.toString();
+    public String readFileWithGBK(File file) {
+        return null;
     }
 }
