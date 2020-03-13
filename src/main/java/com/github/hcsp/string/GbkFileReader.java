@@ -1,10 +1,6 @@
 package com.github.hcsp.string;
 
-import sun.nio.cs.ext.GBK;
-
 import java.io.*;
-import java.nio.Buffer;
-import java.nio.charset.StandardCharsets;
 
 public class GbkFileReader {
     public static void main(String[] args) {
@@ -19,9 +15,10 @@ public class GbkFileReader {
             BufferedReader br = new BufferedReader(ir);
 
             StringBuilder str = new StringBuilder();
-            String line = "";
-            while ((line = br.readLine()) != null) {
-                str.append(line);
+            char[] buf = new char[10];
+            int hasChar = 0;
+            while ((hasChar = br.read(buf, 0, buf.length)) != -1) {
+                str.append(buf, 0, hasChar);
             }
             return str.toString();
         } catch (IOException e) {
