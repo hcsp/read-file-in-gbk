@@ -16,7 +16,7 @@ public class GbkFileReader {
             String str = br.readLine();
             while ((str) != null) {
                 stringBuilder.append(str);
-                if ((str = br.readLine()) != null){
+                if ((str = br.readLine()) != null) {
                     stringBuilder.append("\n");
                 }
             }
