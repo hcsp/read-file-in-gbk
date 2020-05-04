@@ -11,6 +11,7 @@ public class GbkFileReader {
         System.out.println(new GbkFileReader().readFileWithGBK(new File(projectDir, "gbk.txt")));
     }
 
+
     public String readFileWithGBK(File file) throws IOException {
         return new String(Files.readAllBytes(Paths.get(file.getAbsolutePath())), "GBK");
     }
