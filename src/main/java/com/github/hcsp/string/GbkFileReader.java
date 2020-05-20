@@ -2,6 +2,8 @@ package com.github.hcsp.string;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.util.stream.Collectors;
 
 public class GbkFileReader {
     public static void main(String[] args) throws IOException {
@@ -10,12 +12,8 @@ public class GbkFileReader {
     }
 
     public String readFileWithGBK(File file) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("C:/Users/nicknessii/IdeaProjects/read-file-in-gbk/gbk.txt"), Charset.forName("GBK")));
-        StringBuilder sb = new StringBuilder();
-        String str;
-        while((str = br.readLine()) != null){
-            sb.append(str);
-        }
-        return sb.toString();
+        return Files.readAllLines(file.toPath(), Charset.forName("GBK"))
+                .stream().collect(Collectors.joining("\n"));
     }
 }
+
