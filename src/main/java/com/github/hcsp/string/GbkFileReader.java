@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UncheckedIOException;
 import java.util.Arrays;
 
 public class GbkFileReader {
@@ -25,8 +26,7 @@ public class GbkFileReader {
             }
             return sb.toString();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new UncheckedIOException(e);
         }
-        return null;
     }
 }
