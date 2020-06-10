@@ -1,6 +1,12 @@
 package com.github.hcsp.string;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UncheckedIOException;
+import java.util.Arrays;
 
 public class GbkFileReader {
     public static void main(String[] args) {
@@ -9,6 +15,18 @@ public class GbkFileReader {
     }
 
     public String readFileWithGBK(File file) {
-        return null;
+
+        try (InputStream in = new FileInputStream(file);
+             InputStreamReader inputStreamReader = new InputStreamReader(in, "GBK")) {
+            final char[] bytes = new char[1024];
+            int len;
+            StringBuilder sb = new StringBuilder();
+            while ((len = inputStreamReader.read(bytes)) != -1) {
+                sb.append(Arrays.copyOf(bytes, len));
+            }
+            return sb.toString();
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
     }
 }
