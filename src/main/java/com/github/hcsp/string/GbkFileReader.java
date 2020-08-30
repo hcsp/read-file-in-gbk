@@ -14,7 +14,7 @@ public class GbkFileReader {
     public String readFileWithGBK(File file) {
         String collect = null;
         try (BufferedReader bufferedReader = Files.newBufferedReader(file.toPath(), Charset.forName("GBK"))) {
-            collect = bufferedReader.lines().collect(Collectors.joining("\n"));
+            collect = bufferedReader.lines().collect(Collectors.joining(System.lineSeparator()));
         } catch (IOException e) {
             e.printStackTrace();
         }
