@@ -1,6 +1,9 @@
 package com.github.hcsp.string;
 
-import java.io.File;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.util.stream.Collectors;
 
 public class GbkFileReader {
     public static void main(String[] args) {
@@ -9,6 +12,12 @@ public class GbkFileReader {
     }
 
     public String readFileWithGBK(File file) {
-        return null;
+        String collect = null;
+        try (BufferedReader bufferedReader = Files.newBufferedReader(file.toPath(), Charset.forName("GBK"))) {
+            collect = bufferedReader.lines().collect(Collectors.joining("\n"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return collect;
     }
 }
