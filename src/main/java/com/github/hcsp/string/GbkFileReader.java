@@ -19,7 +19,7 @@ public class GbkFileReader {
      * @throws IOException  If an I/O error occurs opening the file
      * @throws NullPointerException If the parameter {@code file} is {@code null}
      */
-    public String readFileWithGBK(File file) throws IOException, NullPointerException {
+    public String readFileWithGBK(File file) throws IOException {
         if (file == null) {
             throw new NullPointerException();
         }
