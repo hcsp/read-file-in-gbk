@@ -18,12 +18,13 @@ public class GbkFileReader {
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), Charset.forName("GBK")));
             while ((line = br.readLine()) != null) {
-                sb.append(line).append(System.lineSeparator());
+                sb.append(line).append("\r\n");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        sb.delete(sb.length() - 2, sb.length());
+        sb.deleteCharAt(sb.length() - 2);
+        sb.deleteCharAt(sb.length() - 1);
         return sb.toString();
     }
 }
