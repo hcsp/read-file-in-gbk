@@ -3,7 +3,6 @@ package com.github.hcsp.string;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileInputStream;
 import java.util.ArrayList;
@@ -24,8 +23,6 @@ public class GbkFileReader {
                 result.add(line);
             }
             return result.stream().collect(Collectors.joining(System.lineSeparator()));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
