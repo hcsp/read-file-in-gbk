@@ -18,9 +18,7 @@ public class GbkFileReader {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "gbk"));
             String string;
             while ((string = bufferedReader.readLine()) != null) {
-                System.out.println(string);
                 stringBuilder.append(string);
-                stringBuilder.append(System.lineSeparator());
             }
             bufferedReader.close();
             return stringBuilder.toString();
