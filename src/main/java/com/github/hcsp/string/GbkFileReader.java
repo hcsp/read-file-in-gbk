@@ -21,7 +21,7 @@ public class GbkFileReader {
                 stringBuilder.append(string);
                 stringBuilder.append(System.lineSeparator());
             }
-            stringBuilder.delete(stringBuilder.length(), stringBuilder.length());
+            stringBuilder.delete(stringBuilder.length() - 1, stringBuilder.length());
             bufferedReader.close();
             return stringBuilder.toString();
         } catch (IOException e) {
