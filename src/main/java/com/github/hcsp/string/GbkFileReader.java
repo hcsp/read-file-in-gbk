@@ -14,5 +14,6 @@ public class GbkFileReader {
     public String readFileWithGBK(File file) throws IOException {
         return Files.readAllLines(file.toPath(),
                 Charset.forName("GBK")).stream().collect(Collectors.joining(System.lineSeparator()));
+
     }
 }
