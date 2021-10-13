@@ -1,7 +1,6 @@
 package com.github.hcsp.string;
 
-import java.io.*;
-import java.util.stream.Collectors;
+import java.io.File;
 
 public class GbkFileReader {
     public static void main(String[] args) {
@@ -10,11 +9,6 @@ public class GbkFileReader {
     }
 
     public String readFileWithGBK(File file) {
-        try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file), "gb2312"));
-            return in.lines().collect(Collectors.joining("\n"));
-        } catch (FileNotFoundException | UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        }
+        return null;
     }
 }
