@@ -1,6 +1,6 @@
 package com.github.hcsp.string;
 
-import java.io.File;
+import java.io.*;
 
 public class GbkFileReader {
     public static void main(String[] args) {
@@ -9,6 +9,17 @@ public class GbkFileReader {
     }
 
     public String readFileWithGBK(File file) {
-        return null;
+        StringBuilder stringBuilder = null;
+        try {
+            InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), "GBK");
+            int b;
+            stringBuilder = new StringBuilder();
+            while ((b = inputStreamReader.read()) != -1) {
+                stringBuilder.append((char) b);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stringBuilder.toString();
     }
 }
