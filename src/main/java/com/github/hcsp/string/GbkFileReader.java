@@ -1,8 +1,10 @@
 package com.github.hcsp.string;
 
-import java.io.*;
+
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
-import java.util.stream.Collectors;
+
 
 public class GbkFileReader {
     public static void main(String[] args) throws IOException {
