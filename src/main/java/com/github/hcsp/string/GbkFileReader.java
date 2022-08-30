@@ -1,6 +1,7 @@
 package com.github.hcsp.string;
 
-import java.io.File;
+import java.io.*;
+import java.nio.file.Files;
 
 public class GbkFileReader {
     public static void main(String[] args) {
@@ -9,6 +10,14 @@ public class GbkFileReader {
     }
 
     public String readFileWithGBK(File file) {
-        return null;
+        String str;
+        try {
+            byte[] bytes = Files.readAllBytes(file.toPath());
+            str = new String(bytes, "GBK");
+            str = str.replace('，', '\n').replace("。", "");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return str;
     }
 }
